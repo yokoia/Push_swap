@@ -49,15 +49,22 @@ void	sort_small(t_stack *a, t_stack *b)
 	{
 		size = a->size;
 		min_index = find_min_index(a);
-		if (min_index >= size / 2)
+		if (min_index > size / 2)
 		{
-			while (min_index++ < size)
+			while (min_index < size - 1)
+			{
 				ra(a, 1);
+				min_index++;
+			}
+			ra(a, 1);
 		}
 		else
 		{
-			while (min_index-- >= 0)
+			while (min_index > 0)
+			{
 				rra(a, 1);
+				min_index--;
+			}
 		}
 		pb(a, b, 1);
 	}

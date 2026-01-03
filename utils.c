@@ -77,11 +77,13 @@ void	normalize_stack(t_stack *stack)
 	int	*sorted;
 	int	i;
 	int	j;
-	int	tmp;
 
 	sorted = (int *)malloc(sizeof(int) * stack->size);
 	if (!sorted)
+	{
+		ft_putstr_fd("Error\n", 2);
 		return ;
+	}
 	i = 0;
 	while (i < stack->size)
 	{
@@ -96,7 +98,7 @@ void	normalize_stack(t_stack *stack)
 		{
 			if (sorted[i] > sorted[j])
 			{
-				tmp = sorted[i];
+				int tmp = sorted[i];
 				sorted[i] = sorted[j];
 				sorted[j] = tmp;
 			}
