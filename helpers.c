@@ -1,26 +1,35 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   helpers.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ykoia <ykoia@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/03 20:58:59 by ykoia             #+#    #+#             */
+/*   Updated: 2026/01/04 12:55:01 by ykoia            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ps_header.h"
-
-
 
 int	ft_isdigit(char *str)
 {
-	while(*str)
+	while (*str)
 	{
-		if((*str < '0' || *str > '9') && (*str != '-' && *str != '+'))
+		if ((*str < '0' || *str > '9') && (*str != '-' && *str != '+'))
 			return (0);
 		str++;
 	}
-	return 1;
+	return (1);
 }
-	
+
 long	ft_atoi(const char *str)
 {
-	long result;
-	int	x;
+	long	result;
+	int		x;
 
 	result = 0;
 	x = 1;
-
 	if (*str == '-' || *str == '+')
 	{
 		if (*str == '-')
@@ -34,7 +43,6 @@ long	ft_atoi(const char *str)
 	}
 	return (result * x);
 }
-
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -55,26 +63,26 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (dst);
 }
 
-int ft_strlen(const char *str)
+int	ft_strlen(const char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 		i++;
-	return i;
+	return (i);
 }
 
-char *ft_avjoin(int ac, char **av)
+char	*ft_avjoin(int ac, char **av)
 {
-	int i;
-	char *str;
-	char *tmp;
+	int		i;
+	char	*str;
+	char	*tmp;
 
 	str = ft_strjoin(av[0], " ");
 	i = 1;
-	while(i < ac)
-	{	
+	while (i < ac)
+	{
 		tmp = str;
 		str = ft_strjoin(tmp, av[i]);
 		free(tmp);
@@ -83,5 +91,5 @@ char *ft_avjoin(int ac, char **av)
 		free(tmp);
 		i++;
 	}
-	return str;
+	return (str);
 }

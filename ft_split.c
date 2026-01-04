@@ -1,5 +1,16 @@
-#include "ps_header.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ykoia <ykoia@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/03 20:58:49 by ykoia             #+#    #+#             */
+/*   Updated: 2026/01/03 21:11:14 by ykoia            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "ps_header.h"
 
 int	ft_strslen(char **strs)
 {
@@ -76,7 +87,6 @@ char	**ft_split(char const *s, char c)
 	result = malloc((word_count + 1) * sizeof(char *));
 	if (!result)
 		return (NULL);
-
 	while (i < word_count)
 	{
 		result[i] = get_next_word(&s, c);
@@ -87,6 +97,6 @@ char	**ft_split(char const *s, char c)
 		}
 		i++;
 	}
-	result[i] = NULL;          
+	result[i] = NULL;
 	return (result);
 }
